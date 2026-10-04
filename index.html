@@ -3,141 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PB Clock</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Anta", monospace;
-        border: none;
-        outline: none;
-      }
-
-      body {
-        background: linear-gradient(135deg, #0b0b0b, #0f0f0f);
-        width: 100vw;
-        height: 100vh;
-        color: #e8e8e8;
-        overflow-x: hidden;
-      }
-
-      main {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      h1 {
-        font-size: 100px;
-      }
-
-      #fullscreenBtn {
-        position: absolute;
-        bottom: 16px;
-        right: 16px;
-        width: 48px;
-        height: 48px;
-        display: grid;
-        place-items: center;
-        font-size: 24px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.08);
-        color: #e8e8e8;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      button#left,
-      button#right {
-        position: absolute;
-        top: 50%;
-        width: 44px;
-        height: 44px;
-        display: grid;
-        place-items: center;
-        font-size: 24px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.08);
-        color: #e8e8e8;
-        cursor: pointer;
-        transform: translateY(-50%);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      button#left {
-        left: 16px;
-      }
-
-      button#right {
-        right: 16px;
-      }
-
-      .timer {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .timer button {
-        padding: 12px;
-        font-size: 24px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.08);
-        color: #e8e8e8;
-        cursor: pointer;
-        transform: translateY(-50%);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-    </style>
+    <title>Start</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
-      <div class="clock">
-        <h1>
-          <span id="h">12</span>:<span id="m">34</span>:<span id="s">56</span>
-        </h1>
+      <div class="input-box">
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </svg>
+        </button>
       </div>
-
-      <div class="timer">
-        <h1><span id="m">25</span>:<span id="s">00</span></h1>
-        <button>START TIMER</button>
-      </div>
-
-      <button id="left">◁</button>
-      <button id="right">▷</button>
-
-      <button id="fullscreenBtn">▢</button>
     </main>
-    <script>
-      const btn = document.getElementById("fullscreenBtn");
 
-      btn.addEventListener("click", async () => {
-        const elem = document.documentElement;
-        try {
-          if (elem.requestFullscreen) {
-            await elem.requestFullscreen();
-            btn.style.display = "none";
-          } else if (elem.webkitRequestFullscreen) {
-            // Safari
-            await elem.webkitRequestFullscreen();
-          } else if (elem.msRequestFullscreen) {
-            // IE11
-            await elem.msRequestFullscreen();
-          }
-          console.log("Full screen activated!");
-        } catch (err) {
-          console.error(`Error enabling full screen: ${err.message}`);
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
